@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz: Vacinas e Sistema Imunológico</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="bg" aria-hidden="true"></canvas>
+<canvas id="conf" aria-hidden="true"></canvas>
+<div class="wrap">
+  <header>
+    <!-- Coloque o arquivo logo.png nesta pasta para usar a logo do colégio -->
+    <img id="logo" src="logo.png" alt="Logo do colégio">
+    <div><h1 id="school">LEGACY SCHOOL</h1><small>Vacinas: treinando o sistema imunológico</small></div>
+    <button class="ghost" id="presBtn">Modo apresentação</button>
+  </header>
+
+  <section class="card" id="start">
+    <h2>Vacinas: treinando o sistema imunológico</h2>
+    <p>São 10 perguntas sobre vacinas e defesas do corpo, sorteadas de um banco de <span id="totalBanco">26</span> perguntas. Cada vez que você refizer o quiz, as perguntas e a ordem das respostas mudam.</p>
+    <label class="chk"><input type="checkbox" id="timerOn" checked> Cronômetro de 20 s por pergunta, com bônus de pontos pela rapidez</label>
+    <label class="chk"><input type="checkbox" id="modoEquipes"> Duas equipes se enfrentando (perguntas alternadas)</label>
+    <div class="teams hide" id="teamSetup">
+      <input type="text" id="teamA" placeholder="Nome da equipe 1" maxlength="24">
+      <span class="vs">×</span>
+      <input type="text" id="teamB" placeholder="Nome da equipe 2" maxlength="24">
+    </div>
+    <button class="p" id="go">Começar quiz</button>
+  </section>
+
+  <section class="card hide" id="quiz">
+    <div class="meta"><span id="num"></span><span id="pts"></span></div>
+    <div class="placar hide" id="placar">
+      <div class="time" id="timeA"><span class="tn"></span><span class="tv"></span></div>
+      <div class="vez" id="vezLabel"></div>
+      <div class="time" id="timeB"><span class="tn"></span><span class="tv"></span></div>
+    </div>
+    <div class="bar"><i id="prog"></i></div>
+    <div class="tbox" id="tbox"><div class="tbar" id="tbar"><i id="tfill"></i></div><span id="tleft"></span></div>
+    <h2 id="q"></h2>
+    <div id="opts"></div>
+    <div class="fb hide" id="fb" aria-live="polite"></div>
+    <div class="right"><button class="p" id="next" disabled>Próxima</button></div>
+  </section>
+
+  <section class="card hide" id="end">
+    <div class="meta"><span>Resultado</span></div>
+    <div class="score hide" id="final"></div>
+    <div class="pontos hide" id="ptsFinal"></div>
+    <div class="placarFinal hide" id="placarFinal"></div>
+    <p id="msg"></p>
+    <button class="p" id="again">Refazer com novas perguntas</button>
+    <div id="review"></div>
+  </section>
+
+  <details class="cfg">
+    <summary>Personalizar (logo, nome e cor)</summary>
+    <div class="row">
+      <input type="text" id="nameIn" placeholder="LEGACY SCHOOL">
+      <input type="color" id="colorIn" value="#1c2b5c" title="Cor principal">
+    </div>
+    <div class="row">
+      <input type="file" id="logoIn" accept="image/*">
+      <button id="reset">Restaurar padrão</button>
+    </div>
+    <div class="row"><label class="chk"><input type="checkbox" id="animIn" checked> Animações de fundo</label></div>
+  </details>
+</div>
+<script src="fundo.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
